@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Join Camp — Undawn</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page">
+    <header class="top">
+      <img src="Gambar WhatsApp 2025-08-17 pukul 23.01.51_fec86722.jpg" alt="Logo Camp Undawn" class="logo" />
+      <nav class="socials">
+        <a href="https://chat.whatsapp.com/Fta9I93mlhl2gERND67JIf?mode=ac_t" target="_blank" rel="noopener" class="btn">Join WA Group</a>
+        <a href="tel:+6281378972234" class="btn">Kontak (Tel)</a>
+        <a href="https://www.tiktok.com/@athenacamp?_t=ZS-8yxOAXJCO6G&_r=1" target="_blank" rel="noopener" class="btn">TikTok</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="card" id="card">
+          <div class="card-face card-front">
+            <img src="Gambar WhatsApp 2025-08-17 pukul 23.01.51_fec86722.jpg" alt="Ketua Camp" class="ketua" />
+            <h1>Join Camp — Undawn</h1>
+            <p class="lead">Daftarkan dirimu untuk mengikuti event camp Undawn. Baca aturan dan persyaratan di bawah sebelum bergabung.</p>
+            <div class="actions">
+              <a class="cta" href="https://chat.whatsapp.com/Fta9I93mlhl2gERND67JIf?mode=ac_t" target="_blank" rel="noopener">Daftar / Join WA</a>
+              <a class="secondary" href="#rules">Lihat Rules</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="rules" class="rules">
+      <h2>Rules &amp; Syarat Join Camp</h2>
+      <ol>
+        <li>wajib on mic pada saat event camp</li>
+        <li>umur 19+</li>
+        <li>di larang toxic di lingkungan serius seperti event camp dan obrolan serius</li>
+        <li>di larang keras membahas 18+ jika umur masih di bawa 20+</li>
+        <li>wajib join grub untuk mengetahui info penting yang di sampaikan ketua</li>
+        <li>no baperan apa lagi bawa bawa nama camp yang dapat merusak nama baik camp tersebut</li>
+        <li>rajin daily seperti radiasi DLL</li>
+        <li>DI SINI BANYAK TANTE-TANTE</li>
+      </ol>
+    </section>
+
+    <section class="contacts">
+      <h3>Kontak Person</h3>
+      <ul>
+        <li>Group WA: <a href="https://chat.whatsapp.com/Fta9I93mlhl2gERND67JIf?mode=ac_t" target="_blank" rel="noopener">https://chat.whatsapp.com/ATHENA</a></li>
+        <li>Telepon/WA: <a href="tel:+6281378972234">+62 812-3456-789</a></li>
+        <li>TikTok: <a href="https://www.tiktok.com/@athenacamp?_t=ZS-8yxOAXJCO6G&_r=1" target="_blank" rel="noopener">@athenacamp</a></li>
+      </ul>
+    </section>
+
+    <footer class="foot">
+      <p>&copy; Undawn Camp — Semua hak dilindungi.</p>
+    </footer>
+  </main>
+
+  <script>
+    // Simple, smooth 3D tilt + click 'pop' animation for the .card
+    (function(){
+      const card = document.getElementById('card');
+      const container = document.querySelector('.hero-inner');
+      const intensity = 18; // degrees
+
+      container.addEventListener('mousemove', (e) => {
+        const rect = container.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5; // -0.5 .. 0.5
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        const rotY = x * intensity * -1;
+        const rotX = y * intensity;
+        card.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg) translateZ(30px)`;
+      });
+
+      container.addEventListener('mouseleave', () => {
+        card.style.transition = 'transform 600ms cubic-bezier(.2,.8,.2,1)';
+        card.style.transform = 'rotateX(0deg) rotateY(0deg) translateZ(0)';
+        setTimeout(()=> card.style.transition = '', 610);
+      });
+
+      // click/tap animation
+      card.addEventListener('mousedown', () => {
+        card.style.transition = 'transform 140ms ease';
+        card.style.transform += ' scale(0.97)';
+      });
+      document.addEventListener('mouseup', () => {
+        card.style.transition = 'transform 260ms cubic-bezier(.2,.8,.2,1)';
+        card.style.transform = card.style.transform.replace(' scale(0.97)','');
+        setTimeout(()=> card.style.transition = '', 270);
+      });
+
+      // make keyboard-accessible (press Enter on focused card)
+      card.setAttribute('tabindex','0');
+      card.addEventListener('keydown', (e) => {
+        if(e.key === 'Enter') {
+          card.animate([
+            { transform: card.style.transform + ' scale(0.97)' },
+            { transform: card.style.transform }
+          ], { duration: 260, easing: 'cubic-bezier(.2,.8,.2,1)' });
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
